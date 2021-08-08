@@ -1,30 +1,22 @@
 <script>
-	export let name;
+    import Kanban from "./KanbanBoard.svelte";
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	.container {
+		display: grid;
+		grid-auto-flow: row;
+		gap: 1m;
 	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
+	@media(min-width: 45em){
+		.container {
+			grid-auto-flow: column;
 		}
 	}
 </style>
+
+<div class="container">
+	<Kanban kanbanName="Arthur's kanban"/>
+	<Kanban kanbanName="Arthur's kanban"/>
+	<Kanban kanbanName="Arthur's kanban"/>
+</div>
