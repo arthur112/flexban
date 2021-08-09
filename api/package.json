@@ -1,0 +1,38 @@
+{
+	"name": "flexban",
+	"version": "1.0.0",
+	"main": "app.ts",
+	"repository": "https://github.com/arthur112/flexban.git",
+	"author": "Arsero <54241944+Arsero@users.noreply.github.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
+		"start": "ts-node src/app.ts"
+	},
+	"dependencies": {
+		"@prisma/client": "^2.28.0",
+		"bson": "^4.4.1",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-kun": "^1.0.24",
+		"helmet": "^4.6.0",
+		"http-errors": "^1.8.0",
+		"morgan": "^1.10.0",
+		"uuid-validate": "^0.0.3"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.12",
+		"@types/dotenv": "^8.2.0",
+		"@types/express": "^4.17.13",
+		"@types/helmet": "^4.0.0",
+		"@types/http-errors": "^1.8.1",
+		"@types/morgan": "^1.9.3",
+		"@types/node": "^16.4.13",
+		"@types/uuid-validate": "^0.0.1",
+		"prisma": "^2.28.0",
+		"ts-node": "^10.2.0",
+		"ts-node-dev": "^1.1.8",
+		"typescript": "^4.3.5"
+	}
+}
