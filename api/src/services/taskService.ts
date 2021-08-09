@@ -10,6 +10,10 @@ export class TaskService {
 		this.prisma = new PrismaClient();
 	}
 
+	public get(): Promise<ITask[]> {
+		return this.prisma.task.findMany();
+	}
+
 	public create(task: ITask): Promise<ITask> {
 		const newTask: ITask = {
 			id: new ObjectId().toString(),

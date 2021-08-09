@@ -24,7 +24,18 @@ export class TaskController {
 		}
 	};
 
+	public get = async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const tasks = await this.taskService.get();
+
+			res.status(200).send(tasks);
+		} catch (error) {
+			next(new createError[500](error.message));
+		}
+	};
+
 	public routes() {
 		this.router.post('/', this.create);
+		this.router.get('/', this.get);
 	}
 }
