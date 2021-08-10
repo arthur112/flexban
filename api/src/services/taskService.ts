@@ -26,4 +26,15 @@ export class TaskService {
 			data: { ...newTask },
 		});
 	}
+
+	public update(id: string, task: ITask): Promise<ITask> {
+		return this.prisma.task.update({
+			where: { id: id },
+			data: { ...task },
+		});
+	}
+
+	public delete(id: string): Promise<ITask> {
+		return this.prisma.task.delete({ where: { id: id } });
+	}
 }

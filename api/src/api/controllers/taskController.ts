@@ -24,6 +24,17 @@ export class TaskController {
 		}
 	};
 
+	public put = async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const task = req.body as ITask;
+			const newTask = await this.taskService.update(req.params.id, task);
+
+			res.status(201).send(newTask);
+		} catch (error) {
+			next(new createError[500](error.message));
+		}
+	};
+
 	public get = async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const tasks = await this.taskService.get();
@@ -34,8 +45,20 @@ export class TaskController {
 		}
 	};
 
+	public delete = async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const task = await this.taskService.delete(req.params.id);
+
+			res.status(200).send(task);
+		} catch (error) {
+			next(new createError[500](error.message));
+		}
+	};
+
 	public routes() {
 		this.router.post('/', this.create);
 		this.router.get('/', this.get);
+		this.router.put('/:id', this.put);
+		this.router.delete('/:id', this.delete);
 	}
 }
